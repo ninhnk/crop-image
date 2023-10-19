@@ -19,16 +19,16 @@
                             </div>
                             <div class="text-center">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-primary aspect-ratio" data-val={{ 16 / 9 }}>
+                                    <label class="btn btn-outline-primary aspect-ratio" data-val={{ 16 / 9 }}>
                                         <input type="radio" id="ratio16-9" autocomplete="off"> 16:9
                                     </label>
-                                    <label class="btn btn-primary aspect-ratio" data-val={{ 4 / 3 }}>
+                                    <label class="btn btn-outline-primary aspect-ratio" data-val={{ 4 / 3 }}>
                                         <input type="radio" id="ratio4-3" autocomplete="off"> 4:3
                                     </label>
-                                    <label class="btn btn-primary aspect-ratio active" data-val={{ 1 }}>
+                                    <label class="btn btn-outline-primary aspect-ratio active" data-val={{ 1 }}>
                                         <input type="radio" id="ratio1" autocomplete="off"> 1:1
                                     </label>
-                                    <label class="btn btn-primary aspect-ratio" data-val={{ 2 / 3 }}>
+                                    <label class="btn btn-outline-primary aspect-ratio" data-val={{ 2 / 3 }}>
                                         <input type="radio" id="ratio2-3" autocomplete="off"> 2:3
                                     </label>
                                 </div>
