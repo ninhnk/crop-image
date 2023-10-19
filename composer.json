@@ -1,0 +1,27 @@
+{
+    "name": "stew/crop-image",
+    "description": "Crop image and format file to webp.",
+    "type": "library",
+    "keywords": ["php", "image", "cropping"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Stew\\CropImage\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stew\\CropImage\\Providers\\CropImageServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "ninhnk",
+            "email": "ninhnk@icitech.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

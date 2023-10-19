@@ -1,0 +1,33 @@
+.show-image {
+    position: relative;
+}
+.show-image img {
+    border-radius: 50%;
+    border: solid 1px #39f;
+}
+.icon-camera {
+    content: "";
+    background-image: url('/crop-image/images/camera.webp');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.icon-camera:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.wrap-peview {
+    height: 180px;
+}
+.preview-crop {
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    border: 1px solid #39f;
+}
