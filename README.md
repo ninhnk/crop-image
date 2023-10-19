@@ -12,7 +12,8 @@ php artisan vendor:publish --provider="Stew\CropImage\Providers\CropImageService
 Include files:
 
 ```angular2html
-@include('view-crop::include._modal-crop')
+@include('view-crop::include._modal-crop-bs4') // For bootstrap4
+@include('view-crop::include._modal-crop-bs5') // For bootstrap5
 
 <link rel="stylesheet" href="/path/crop-image/cropper/cropper.css"/>
 <script src="/path/crop-image/cropper/cropper.js" defer></script>

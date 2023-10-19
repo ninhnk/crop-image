@@ -1,5 +1,6 @@
 .show-image {
     position: relative;
+    text-align: center;
 }
 .show-image img {
     border-radius: 50%;
