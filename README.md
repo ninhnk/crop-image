@@ -7,7 +7,7 @@
 
 ```
 composer require stew/crop-image
-php artisan vendor:publish --provider="Stew\CropImage\Providers\CropImageServiceProvider"
+php artisan vendor:publish --provider="Stew\CropImage\Providers\CropImageServiceProvider" --force
 ```
 Include files:
 
@@ -28,7 +28,7 @@ Include files:
 <input type="hidden" name="image_base64">
 <input type="hidden" name="original_name"> // add this line if you want to save original name
 <div class="show-image">
-    <img width="160" src="crop-image/images/avatar-default.webp">
+    <img width="160" height="160" src="crop-image/images/avatar-default.webp">
     <div class="icon-camera"></div>
 </div>
 ```
