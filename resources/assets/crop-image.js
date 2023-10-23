@@ -2,6 +2,7 @@ $(function () {
     var $modal = $('#modal-crop');
     var $dragTitle = $('#drag-title');
     var image = document.getElementById('image');
+    var previews = document.getElementsByClassName('img-preview');
     var cropper, fileName;
 
     $("body").on("change", ".image-crop", function(e){
@@ -28,9 +29,19 @@ $(function () {
         cropper = new Cropper(image, {
             aspectRatio: 1,
             viewMode: 1,
-            preview: '.preview-crop'
+            preview: '.img-preview',
+            crop: function (event) {
+                let data = event.detail;
+                let previewAspectRatio = data.width / data.height;
+                $.each(previews, function (_i, _item) {
+                    let previewWidth = _item.offsetWidth;
+                    let previewHeight = previewWidth / previewAspectRatio;
+                    _item.style.height = previewHeight + 'px';
+                });
+            }
         });
         $(".aspect-ratio[data-val='1']").addClass('active');
+
     }).on('hidden.bs.modal', function () {
         // Cleanup when the modal is hidden
         cropper.destroy();
@@ -72,7 +83,22 @@ $(function () {
                 }
             });
         });
+
+        let thumbnailCanvas = cropper.getCroppedCanvas({ width: 160, height: 160 });
+        thumbnailCanvas.toBlob(function (thumbnailBlob) {
+            const thumbnailReader = new FileReader();
+            // Convert to WebP format and update the blob
+            blobToWebP(thumbnailBlob, function (webpBlob) {
+                URL.createObjectURL(webpBlob);
+                thumbnailReader.readAsDataURL(webpBlob);
+                thumbnailReader.onloadend = function () {
+                    let thumbnailBase64 = thumbnailReader.result;
+                    $("input[name='thumbnail_img']").val(thumbnailBase64);
+                };
+            });
+        });
     });
+
     // Function to convert a blob to WebP format
     function blobToWebP(blob, callback)
     {

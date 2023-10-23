@@ -9,14 +9,24 @@
             </div>
             <div class="modal-body">
                 <div class="img-container">
-                    <div class="row">
+                    <div class="row pb-3">
                         <div class="col-md-8">
-                            <img id="image" class="w-100" src="" alt="">
+                            <div class="w-100">
+                                <img id="image" class="w-100" src="" alt="">
+                            </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="wrap-peview">
-                                <div class="preview-crop"></div>
+                            <div class="preview-container">
+                                <div class="img-preview preview-lg"></div>
+                                <div class="img-preview preview-md"></div>
+                                <div class="img-preview preview-sm"></div>
+                                <div class="img-preview preview-xs"></div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-4">
                             <div class="text-center">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-outline-primary aspect-ratio" data-val={{ 16 / 9 }}>

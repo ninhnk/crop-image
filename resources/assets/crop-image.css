@@ -23,15 +23,28 @@
     opacity: 0.8;
     cursor: pointer;
 }
-.wrap-peview {
-    height: 180px;
-}
-.preview-crop {
+.img-preview {
+    float: left;
+    margin-bottom: 15px;
+    margin-right: 15px;
     overflow: hidden;
-    width: 160px;
-    height: 160px;
-    margin: 0 auto;
     border: 1px solid #39f;
+}
+.preview-lg {
+    width: 256px;
+    height: 256px;
+}
+.preview-md {
+    width: 128px;
+    height: 128px;
+}
+.preview-sm {
+    width: 64px;
+    height: 64px;
+}
+.preview-xs {
+    width: 32px;
+    height: 32px;
 }
 .drag-image {
     width: 100%;
