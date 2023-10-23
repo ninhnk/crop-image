@@ -1,5 +1,6 @@
 $(function () {
     var $modal = $('#modal-crop');
+    var $dragTitle = $('#drag-title');
     var image = document.getElementById('image');
     var cropper, fileName;
 
@@ -29,11 +30,13 @@ $(function () {
             viewMode: 1,
             preview: '.preview-crop'
         });
+        $(".aspect-ratio[data-val='1']").addClass('active');
     }).on('hidden.bs.modal', function () {
         // Cleanup when the modal is hidden
         cropper.destroy();
         cropper = null;
         $('.image-crop').val('');
+        $('.aspect-ratio').removeClass('active');
     });
 
     $('body').on('click', '.icon-camera', function() {
@@ -61,13 +64,18 @@ $(function () {
                     }
                     $(".show-image img").attr("src", base64);
                     $(".show-image img").attr("alt", fileName);
+                    if ($dragTitle.length) {
+                        $dragTitle.hide();
+                        $('.drag-image .show-image').show();
+                    }
                     $("#modal-crop").modal('toggle');
                 }
             });
         });
     });
     // Function to convert a blob to WebP format
-    function blobToWebP(blob, callback) {
+    function blobToWebP(blob, callback)
+    {
         const inputImage = new Image();
         inputImage.src = URL.createObjectURL(blob);
         inputImage.onload = function() {
@@ -80,4 +88,10 @@ $(function () {
             canvas.toBlob(callback, 'image/webp', 1.0);
         };
     }
+    $('body').on('click', '.remove-image', function () {
+        $dragTitle.show();
+        $('.drag-image .show-image').hide();
+        $(".drag-image .show-image img").attr("src", '');
+        $(".drag-image .show-image img").attr("alt", '');
+    });
 });

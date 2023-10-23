@@ -23,6 +23,8 @@ Include files:
 
 ## Usage
 
+#### Crop avatar
+
 ```angular2html
 <input type="file" class="image-crop d-none" accept="image/*">
 <input type="hidden" name="image_base64">
@@ -30,6 +32,20 @@ Include files:
 <div class="show-image">
     <img width="160" height="160" src="crop-image/images/avatar-default.webp">
     <div class="icon-camera"></div>
+</div>
+```
+
+#### Drop & Drag
+
+```angular2html
+<div class="drag-image">
+    <input type="file" class="image-crop" accept="image/*">
+    <input type="hidden" name="image_base64">
+    <div id="drag-title">YOUR TITLE</div>
+    <div class="show-image" style="display: none;">
+        <img height="160" src="" alt="">
+        <button type="button" class="btn btn-danger btn-sm remove-image">&times;</button>
+    </div>
 </div>
 ```
 
