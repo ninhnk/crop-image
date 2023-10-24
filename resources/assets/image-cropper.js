@@ -127,7 +127,7 @@ class ImageCropper {
         $('#avatar-image').html(`
             <input type="file" class="image-crop d-none" accept="image/*">
             <div class="show-image">
-                <img width="160" height="160" src="crop-image/images/avatar-default.webp" alt="avatar-default">
+                <img width="160" height="160" src="image-cropper/images/avatar-default.webp" alt="avatar-default">
                 <div class="icon-camera"></div>
             </div>
         `);

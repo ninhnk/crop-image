@@ -10,7 +10,7 @@
 }
 .icon-camera {
     content: "";
-    background-image: url('/crop-image/images/camera.webp');
+    background-image: url('/image-cropper/images/camera.webp');
     background-size: 100%;
     background-repeat: no-repeat;
     width: 30px;

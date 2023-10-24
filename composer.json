@@ -1,5 +1,5 @@
 {
-    "name": "stew/crop-image",
+    "name": "stew/image-cropper",
     "description": "Crop image and format file to webp.",
     "type": "library",
     "keywords": ["php", "image", "cropping"],
@@ -12,7 +12,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Stew\\CropImage\\Providers\\CropImageServiceProvider"
+                "Stew\\ImageCropper\\Providers\\ImageCropperServiceProvider"
             ]
         }
     },

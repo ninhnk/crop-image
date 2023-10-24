@@ -1,10 +1,10 @@
 <?php
 
-namespace Stew\CropImage\Providers;
+namespace Stew\ImageCropper\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class CropImageServiceProvider extends ServiceProvider
+class ImageCropperServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -23,7 +23,7 @@ class CropImageServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'lang-crop');
 
         $this->publishes([
-            __DIR__ . '/../../resources/assets' => public_path('crop-image'),
+            __DIR__ . '/../../resources/assets' => public_path('image-cropper'),
         ]);
     }
 }
