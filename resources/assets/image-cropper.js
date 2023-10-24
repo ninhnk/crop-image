@@ -6,12 +6,14 @@ class ImageCropper {
         this.$previews = document.getElementsByClassName('img-preview');
         this.cropper = null;
         this.originalName = null;
-        this.isThumbnail = config.isThumbnail !== undefined ? config.isThumbnail : false;
-        this.isOriginalName = config.isOriginalName !== undefined ? config.isOriginalName : true;
-        this.thumbnailSize = config.thumbnailSize || { width: 160, height: 160 };
+        this.dragTitle = (config && config.dragTitle !== undefined) ? config.dragTitle : 'drag & drop to upload';
+        this.formSelector = (config && config.formSelector !== undefined) ? config.formSelector : 'form';
+        this.isThumbnail = (config && config.isThumbnail !== undefined) ? config.isThumbnail : false;
+        this.isOriginalName = (config && config.isOriginalName !== undefined) ? config.isOriginalName : true;
+        this.thumbnailSize = (config && config.thumbnailSize !== undefined) ? config.thumbnailSize :  { width: 160, height: 160 };
         this.addBlockAvatar();
-        this.addBlockDrag(config.dragTitle);
-        this.addInputHidden(config.formSelector);
+        this.addBlockDrag();
+        this.addInputHidden();
         this.setupEventListeners();
     }
 
@@ -133,10 +135,10 @@ class ImageCropper {
         `);
     }
 
-    addBlockDrag(dragTitle = 'drag & drop to upload') {
+    addBlockDrag() {
         $('#drag-image').html(`
             <input type="file" class="image-crop" accept="image/*">
-            <div id="drag-title">${dragTitle}</div>
+            <div id="drag-title">${this.dragTitle}</div>
             <div class="show-image" style="display: none;">
                 <img height="160" src="" alt="">
                 <button type="button" class="btn btn-danger btn-sm remove-image">&times;</button>
@@ -144,7 +146,7 @@ class ImageCropper {
         `);
     }
 
-    addInputHidden(selector = 'form') {
+    addInputHidden() {
         let thumbnailInput = this.isThumbnail ? '<input type="hidden" name="thumbnail_img">' : '';
         let originalInput = this.isOriginalName ? '<input type="hidden" name="original_name">' : '';
         let html = `
@@ -152,7 +154,7 @@ class ImageCropper {
             ${originalInput}
             ${thumbnailInput}
         `;
-        $(selector).prepend(html);
+        $(this.formSelector).prepend(html);
     }
 
     blobToWebP(blob, callback) {

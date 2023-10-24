@@ -1,6 +1,6 @@
 {
     "name": "stew/image-cropper",
-    "description": "Crop image and format file to webp.",
+    "description": "The ImageCropper is designed to be used in web applications for image handling. It provides functionalities for cropping images and converting them to the WebP format.",
     "type": "library",
     "keywords": ["php", "image", "cropping"],
     "license": "MIT",

@@ -3,11 +3,14 @@
 - Bootstrap >= 4.0.0
 - Jquery >= 3.0.0
 
+## Introduction
+The `ImageCropper` is a utility for cropping and manipulating images in a web application. It provides methods for handling image uploads, cropping, and generating base64 encoded image data.
+
 ## Installation
 
 ```
-composer require stew/crop-image
-php artisan vendor:publish --provider="Stew\CropImage\Providers\CropImageServiceProvider" --force
+composer require stew/image-cropper
+php artisan vendor:publish --provider="Stew\ImageCropper\Providers\ImageCropperServiceProvider" --force
 ```
 Include files:
 
@@ -15,38 +18,47 @@ Include files:
 @include('view-crop::include._modal-crop-bs4') // For bootstrap4
 @include('view-crop::include._modal-crop-bs5') // For bootstrap5
 
-<link rel="stylesheet" href="/path/crop-image/cropper/cropper.css"/>
-<script src="/path/crop-image/cropper/cropper.js" defer></script>
-<link rel="stylesheet" href="/path/crop-image/crop-image.css">
-<script src="/path/crop-image/crop-image.js" defer></script>
+<link rel="stylesheet" href="/path/image-cropper/image-cropper.css"/>
+<script src="/path/image-cropper/cropper/cropper.js" defer></script>
+<script src="/path/image-cropper/image-cropper.js" defer></script>
 ```
 
 ## Usage
 
-#### Crop avatar
-
+- To use the ImageCropper class, initialize it with a configuration object:
 ```angular2html
-<input type="file" class="image-crop d-none" accept="image/*">
-<input type="hidden" name="image_base64">
-<input type="hidden" name="original_name"> // add this line if you want to save original name
-<div class="show-image">
-    <img width="160" height="160" src="crop-image/images/avatar-default.webp">
-    <div class="icon-camera"></div>
-</div>
+const imageCropper = new ImageCropper();
 ```
 
-#### Drop & Drag
+#### Default Configuration Options
 
+- `dragTitle` (optional, string): The text to display as the drag-and-drop area title. The default value is 'drag & drop to upload'.
+
+- `formSelector` (optional, string): The selector for the form to attach hidden input fields. The default value is 'form'.
+
+- `isThumbnail` (optional, boolean): Specifies whether to generate a thumbnail image. The default value is `false`.
+
+- `isOriginalName` (optional, boolean): Specifies whether to include the original image name. The default value is `true`.
+
+- `thumbnailSize` (optional, object): Defines the dimensions of the thumbnail image as an object with `width` and `height` properties. The default size is { width: 160, height: 160 }.
+
+You can configure the `ImageCropper` by providing these parameters in the initialization object. For example:
+
+```javascript
+const config = {
+    dragTitle: 'Click or drag to upload an image',
+    formSelector: '#upload-form',
+    isThumbnail: true,
+    isOriginalName: false,
+    thumbnailSize: { width: 120, height: 120 },
+};
+```
+
+## HTML Structure
+- To use the ImageCropper class, make sure you have the following HTML structure in your document:
 ```angular2html
-<div class="drag-image">
-    <input type="file" class="image-crop" accept="image/*">
-    <input type="hidden" name="image_base64">
-    <div id="drag-title">YOUR TITLE</div>
-    <div class="show-image" style="display: none;">
-        <img height="160" src="" alt="">
-        <button type="button" class="btn btn-danger btn-sm remove-image">&times;</button>
-    </div>
-</div>
+<div id="avatar-image"></div> <!-- Use this for avatar cropping -->
+<div id="drag-image"></div> <!-- Use this for drag and drop image upload -->
 ```
 
 - If you wish to add image uploading functionality to your Laravel project, you can utilize the <a href="https://github.com/ninhnk/image-uploader">Image Uploader</a> package. 
