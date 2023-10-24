@@ -1,6 +1,5 @@
 class ImageCropper {
     constructor(config) {
-        this.$dragTitleElement = $('#drag-title');
         this.$modal = $('#modal-crop');
         this.$image = document.getElementById('image');
         this.$previews = document.getElementsByClassName('img-preview');
@@ -15,6 +14,7 @@ class ImageCropper {
         this.addBlockDrag();
         this.addInputHidden();
         this.setupEventListeners();
+        this.$dragTitleElement = $('#drag-title');
     }
 
     setupEventListeners() {
