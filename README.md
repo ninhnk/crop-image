@@ -32,15 +32,15 @@ const imageCropper = new ImageCropper();
 
 #### Default Configuration Options
 
-- `dragTitle` (optional, string): The text to display as the drag-and-drop area title. The default value is 'drag & drop to upload'.
+- `dragTitle` (optional, string): The text to display as the drag-and-drop area title. (default: 'drag & drop to upload').
 
-- `formSelector` (optional, string): The selector for the form to attach hidden input fields. The default value is 'form'.
+- `formSelector` (optional, string): The selector for the form to attach hidden input fields. (default: 'form)
 
-- `isThumbnail` (optional, boolean): Specifies whether to generate a thumbnail image. The default value is `false`.
+- `isThumbnail` (optional, boolean): Specifies whether to generate a thumbnail image. (default: `false`).
 
-- `isOriginalName` (optional, boolean): Specifies whether to include the original image name. The default value is `true`.
+- `isOriginalName` (optional, boolean): Specifies whether to include the original image name. (default: `true`).
 
-- `thumbnailSize` (optional, object): Defines the dimensions of the thumbnail image as an object with `width` and `height` properties. The default size is { width: 160, height: 160 }.
+- `thumbnailSize` (optional, object): Defines the dimensions of the thumbnail image as an object with `width` and `height` properties. (default: { width: 160, height: 160 }).
 
 You can configure the `ImageCropper` by providing these parameters in the initialization object. For example:
 
