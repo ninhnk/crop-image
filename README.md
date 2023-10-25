@@ -12,15 +12,21 @@ The `ImageCropper` is a utility for cropping and manipulating images in a web ap
 composer require stew/image-cropper
 php artisan vendor:publish --provider="Stew\ImageCropper\Providers\ImageCropperServiceProvider" --force
 ```
-Include files:
+
+## HTML Structure
+- To use the ImageCropper class, make sure you have the following HTML structure in your document:
 
 ```angular2html
-@include('view-crop::include._modal-crop-bs4') // For bootstrap4
-@include('view-crop::include._modal-crop-bs5') // For bootstrap5
 
 <link rel="stylesheet" href="/path/image-cropper/image-cropper.css"/>
-<script src="/path/image-cropper/cropper/cropper.js" defer></script>
-<script src="/path/image-cropper/image-cropper.js" defer></script>
+<script src="/path/image-cropper/cropper/cropper.js"></script>
+<script src="/path/image-cropper/image-cropper.js"></script>
+
+<div id="avatar-image"></div> <!-- Use this for avatar cropping -->
+<div id="drag-image"></div> <!-- Use this for drag and drop image upload -->
+
+@include('view-crop::include._modal-crop-bs4') <!-- For bootstrap4 -->
+@include('view-crop::include._modal-crop-bs5') <!-- For bootstrap5 -->
 ```
 
 ## Usage
@@ -52,13 +58,6 @@ const config = {
     isOriginalName: false,
     thumbnailSize: { width: 120, height: 120 },
 };
-```
-
-## HTML Structure
-- To use the ImageCropper class, make sure you have the following HTML structure in your document:
-```angular2html
-<div id="avatar-image"></div> <!-- Use this for avatar cropping -->
-<div id="drag-image"></div> <!-- Use this for drag and drop image upload -->
 ```
 
 - If you wish to add image uploading functionality to your Laravel project, you can utilize the <a href="https://github.com/ninhnk/image-uploader">Image Uploader</a> package. 

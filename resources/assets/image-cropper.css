@@ -7,6 +7,7 @@
     border-radius: 50%;
     border: solid 1px #39f;
     padding: 5px;
+    margin: 0 auto;
 }
 .icon-camera {
     content: "";
@@ -70,7 +71,7 @@
 }
 #drag-image .show-image img {
     border-radius: unset;
-    margin: 15px;
+    margin: 15px auto;
 }
 #drag-image button {
     position: absolute;
