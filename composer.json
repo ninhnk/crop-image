@@ -6,7 +6,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Stew\\CropImage\\": "src/"
+            "Stew\\ImageCropper\\": "src/"
         }
     },
     "extra": {
